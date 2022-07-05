@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import './styles.css';
+import Navbar from './Navbar';
+import About from './About';
+import Skills from './Skills';
+import Projects from './Projects';
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "./themes.js"
+import Aos from 'aos';
+import "aos/dist/aos.css";
+
+const StyledApp = styled.div`
+`
 
 function App() {
+
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    localStorage.setItem('theme', theme);
+    theme === 'light' ? setTheme("dark") : setTheme("light");
+  }
+
+  useLayoutEffect(() => {
+    if (localStorage.getItem('theme') === 'light') {
+      setTheme("dark");
+    }
+  })
+
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <StyledApp>
+        <Navbar toggleTheme={toggleTheme}/>
+        <About />
+        <Skills />
+        <Projects />
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 

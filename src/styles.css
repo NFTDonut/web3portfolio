@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    --primary: #6200EE;
+    --primary-variant: #3700B3;
+    --background-color: #fff;
+    --text-color: #000;
+    --button-text-color: var(--background-color);
+    --transition-delay: 1s;
+
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition-delay);
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+    
+
+}
+
+body.dark {
+    --primary: #BB86FC;
+    --background-color: #121212;
+    --text-color: white;
+}
+
+.gradient-button {
+    
+    background: linear-gradient(135deg, #ee008b, #ee6300);
+    position: relative;
+    border: none;
+    margin: auto;
+    height: 50px;
+    width: 180px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.25s;
+    margin-bottom: 40px;
+    
+}
+
+.gradient-button:hover {
+    transform: scale(1.05);
+}
+
+.gradient-button::before {
+    
+    background: linear-gradient(135deg, #ee008b, #ee6300);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(20px);
+    transform: translate(4px, 8px) scale(0.8);
+}
+
+h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+h3 {
+    font-size: 40px;
+    margin: 30px 0px 10px 0px;
+    padding: 0px;
+}
+
+h4 {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    padding: 0px 40px 0px 40px;
+}
+
+.theme-toggle-div {
+    display: flex;
+    justify-content: right;
+    min-width: 200px;
+}
+
+.theme-toggle-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+    transform: scale(1);
+    line-height: 0;
+    padding: 0px 20px;
+
+}
+
+.theme-toggle-button:hover {
+    transform: scale(1.1);
+}
+
+.nav {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    align-items: stretch;
+    height: 60px;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.site-title {
+    text-align: left;
+    width: 200px;
+    font-size: 2rem;
+    padding-left: 20px;
+    font-weight: normal;
+}
+
+.nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 0rem;
+}
+
+.nav li {
+    cursor: pointer;
+}
+
+.nav a {
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    letter-spacing: 0.1rem;
+    transition: 0.4s ease-in;
+    
+}
+
+.nav a.active {
+    background-color: #3700B3;
+    color: white;
+}
+
+
+/* .nav li.active {
+    background-color: #3700B3;
+} */
+
+.nav li:hover {
+    background-color: #3700B3;
+    color: white;
+}
+
+.hamburger-div {
+    display: none;
+    height: 100%;
+    justify-content: right;
+    align-items: center;
+    z-index: 1;
+}
+
+.hamburger-menu {
+    position: fixed;
+    top: -200px;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    transition: 0.3s;
+    z-index: 1;
+    border-radius: 0px 0px 20px 20px;
+    
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+    
+}
+
+/* .hamburger-menu.active {
+    top: 0px;
+} */
+
+.hamburger-item {
+    z-index: 2;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+    border: none;
+    margin: 0px;
+    border-radius: 20px;
+}
+
+.hamburger-item p {
+    margin: 0px;
+    padding: 8px;
+}
+
+.hamburger-theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-item:hover {
+    background-color: #3700B3;
+    color: white;
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* .page-heading {
+    color: black;
+    font-weight: bold;
+} */
+
+.container {
+    min-height: calc(100vh - 60px);
+    margin-top: 60px;
+}
+
+.container-title-left {
+    font-size: 50px;
+    width: 100%;
+    padding: 20px 50px;
+}
+
+.container-title-right {
+    font-size: 50px;
+    width: 100%;
+    text-align: right;
+    padding: 20px 50px;
+}
+
+.container-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+    vertical-align: top;
+}
+
+.about-card {
+    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+    min-width: 340px;
+    min-height: 100px;
+    margin: auto;
+    margin: 0 20px 20px 20px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    line-height: 30px;
+}
+
+/* .about-card h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 3em;
+} */
+
+.skill-card {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow: 1px 2px 4px #000;
+    min-height: 500px;
+    width: 20%;
+    min-width: 340px;
+    min-height: 400px;
+    margin: 0 20px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card {
+    border-radius: 20px;
+    width: 30%;
+    min-width: 340px;
+    min-height: 400px;
+    margin: 0 20px 20px 20px;
+    padding: 0px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-card .card-img {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 10px 0px;
+
+}
+
+.project-card h3 {
+    font-size: 30px;
+    margin: 20px 0px 0px 0px;
+    padding: 0px;
+}
+
+.project-card .gradient-button {
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    
+}
+
+.project-skills-container {
+    margin-top: 10px;
+}
+
+.project-skills-container ul {
+    padding-top: 10px;
+    margin: auto;
+    font-weight: lighter;
+}
+
+.card-img {
+    border-radius: 20px;
+    height: 200px;
+    padding: 20px;
+    margin-bottom: 30px;
+
+}
+
+.ethers-js-img {
+    border-radius: 20px;
+    height: 200px;
+    padding: 20px;
+    transition: 0.5s;
+    margin-bottom: 30px;
+}
+
+.solidity-img {
+    border-radius: 20px;
+    height: 200px;
+    padding: 20px;
+    transition: 1s;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav li {
+        display: none;
+    }
+    .theme-toggle-div {
+        display: none;
+    }
+    .hamburger-div {
+        display: flex;
+    }
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .hamburger-item .theme-toggle-button:hover {
+        color: white;
+    }
+
+  }
